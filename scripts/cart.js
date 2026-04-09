@@ -1,82 +1,11 @@
-
-//getData("https://dummyjson.com/products");
-/*
-async function getData(url) {
-  let shop = document.getElementById("shop");
-  shop.innerHTML = "<p>Loading products...</p>";
-  try {
-    let response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    let data = await response.json();
-    render(data);
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    shop.innerHTML = "<p>Failed to load products. Please try again later.</p>";
-  }
-}
-*/
-/*
-function render(data) {
-  let shop = document.getElementById("shop");
-  if (!shop) {
-    console.error("Shop element not found");
-    return;
-  }
-
-  const products = data.products;
-
-  let output = "<div class='row row-cols-1 row-cols-md-3 g-4'>";
-
-  products.forEach((product) => {
-    output += `
-    <div class="col">
-      <div class="card h-100 text-center bg-light p-3">                 
-          <img class="card-img-top" src="${product.images[0]}" alt="${product.title}" loading="lazy"/>
-            
-          <div class="card-body d-flex flex-column">
-            <h2 class="card-title">${product.title}</h2>
-            <p class="card-text">${product.description}</p>
-          
-            <div class="mt-auto">
-              <p class="card-text">Price: ${product.price}$</p>
-              <button type="button" class="btn btn-primary" data-action="buy" id="btn-${product.id}">Buy now</button>   
-           </div>                
-        </div>
-      </div>
-    </div>
-    `;
-  });
-
-  output += "</div>";
-
-  shop.innerHTML = output;
-
-  products.forEach((product) => {
-    const buyButton = document.getElementById(`btn-${product.id}`);
-
-    if (buyButton) {
-      buyButton.addEventListener("click", () => {
-        addToCart(product);
-      }
-      );
-    }
-  });
-}
-*/
-
 function addToCart(product) {
   let cart = getCart();
 
-  // Check if the product is already in the cart
   const existingProduct = cart.find((item) => item.id === product.id);
 
   if (existingProduct) {
-    // If the product is already in the cart, increase the quantity
     existingProduct.quantity += 1;
   } else {
-    // If the product is not in the cart, add it as a new item
     cart.push({
       id: product.id,
       name: product.title,
@@ -85,20 +14,8 @@ function addToCart(product) {
       image: product.images[0],
     });
   }
-
-  // Save the updated cart back to localStorage
   saveCart(cart);
-
-  //alert(`${product.title} added to cart!`);
 }
-/*
-const cartBtn = document.getElementById("cart-button");
-if (cartBtn) {
-  cartBtn.addEventListener("click", () => {
-    window.location.href = "cart.html";
-  });
-}
-*/
 
 const emptyCartBtn = document.getElementById("empty-cart-button");
 if (emptyCartBtn) {
@@ -108,7 +25,7 @@ if (emptyCartBtn) {
   });
 }
 
-const clearCartBtn = document.getElementById("clear-cart-button");
+const clearCartBtn = document.getElementById("clear-all-button");
 if (clearCartBtn) {
   clearCartBtn.addEventListener("click", () => {
     resetCart();
@@ -124,25 +41,14 @@ function resetCart() {
     input.classList.remove("is-valid", "is-invalid");
   });
 
-  localStorage.removeItem("cart"); // Clear localStorage when form is reset
-  location.reload(); // Reload the page to reflect the cleared cart
+  localStorage.removeItem("cart"); 
+  location.reload(); 
 }
 
-/*
-const shopBtn = document.getElementById("shop-button");
-if (shopBtn) {
-  shopBtn.addEventListener("click", () => {
-    window.location.href = "index.html";
-  });
-}
-*/
-
-// Get the existing cart from localStorage or initialize an empty array
 function getCart() {
   return JSON.parse(localStorage.getItem("cart")) || [];
 }
 
-// Save the updated cart back to localStorage
 function saveCart(cart) {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
@@ -173,7 +79,7 @@ function renderCart() {
     totalPrice += itemTotal;
 
     output += `
-<li class="list-group-item d-flex align-item-center   ">
+<li class="list-group-item d-flex align-items-center   ">
   <img src="${item.image}" alt="${item.name}" class=" m-3" style="width: 100px;" />
   
   <div class="">
@@ -182,8 +88,8 @@ function renderCart() {
     <p class="card-text mb-0">Quantity: 
       <button class="btn btn-primary btn-sm" id="add-btn-${item.id}">+</button>
       ${item.quantity}
-      <button class="btn btn-primary btm-sm" id="subtract-btn-${item.id}">-</button>
-      <button class="btn btn-primary btm-sm ms-2 btn-danger" id="remove-product-btn-${item.id}">Remove product</button>
+      <button class="btn btn-primary btn-sm" id="subtract-btn-${item.id}">-</button>
+      <button class="btn btn-primary btn-sm ms-2 btn-danger" id="remove-product-btn-${item.id}">Remove product</button>
       </p>
       <p class="card-text fw-bold">Total: ${itemTotal}$</p>
   </div>
@@ -381,4 +287,3 @@ Total: ${totalPrice.toFixed(2)}
   return output;
 }
 
-//formValidation();
