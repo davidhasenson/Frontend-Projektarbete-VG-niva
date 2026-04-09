@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <!--Base Start-->
+    <base href="" id="base-path" />
+
+    
+    <script src="../scripts/base_config.js"></script>
+
+    <!--Base End-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/bootstrap.css" />
+
+    <!-- Header Menu Dropdown Menu Start -->
+    <script defer src="scripts/create_header.js"></script>
+    <link rel="stylesheet" href="styles/side_menu_style.css" />
+    <!-- Header Menu Dropdown Menu End -->
+
+    <title>Cart</title>
+  </head>
+
+
+<body>
+    <div class="container p-3">
+
+        <h2 class=" h2 text-primary p-3">Order</h2>
+
+        <h3 class=" h3 text-secondary p-3">Items</h3>
+
+        <div class="m-3" id="cart-container"></div>
+
+        <div>
+            <button type="button" class="btn btn-secondary m-3" id="empty-cart-button">Empty cart</button>
+        </div>
+
+        <h3 class="form h3 text-secondary p-3">Shipping Information</h3>
+
+        <div id="form-container">
+            <form novalidate>
+
+                <!-- Name -->
+                <!--Namnet är minst 2 tecken och max 50 tecken -->
+                <div class="form-floating m-3">
+                    <input type="text" id="name" class="form-control" placeholder="Firstname Lastname" required />
+                    <label for="name" class="form-label">Name</label>
+                    <div class="invalid-feedback">Invalid</div>
+                    <div class="valid-feedback">Valid</div>
+                </div>
+
+                <!-- Email -->
+                <!-- E-postadressen måste innehålla @ och max 50 tecken  -->
+                <div class="form-floating m-3">
+                    <input type="email" id="email" class="form-control" placeholder="email" required />
+                    <label for="email" class="form-label">Email</label>
+                    <div class="invalid-feedback">Invalid email</div>
+                    <div class="valid-feedback">Valid email</div>
+                </div>
+
+                <!-- telephone -->
+                <!--Telefonnummer får innehålla siffror, bindestreck och parenteser. Max 20 tecken. -->
+                <div class="form-floating m-3">
+                    <input type="tel" id="tel" class="form-control" placeholder="xxx-xxxxxxx" required />
+                    <label for="tel" class="form-label">Phone number</label>
+                    <div class="invalid-feedback">Invalid tel</div>
+                    <div class="valid-feedback">Valid tel</div>
+                </div>
+
+                <!-- Street Address -->
+                <!--Gatuadress: Min 2 tecken och Max 50 tecken -->
+                <div class="form-floating m-3">
+                    <input type="text" id="street-address" class="form-control" placeholder="Street address" required />
+                    <label for="street-address" class="form-label">Street address</label>
+                    <div class="invalid-feedback">Invalid</div>
+                    <div class="valid-feedback">Valid</div>
+                </div>
+
+                <!-- Postal code -->
+                <!-- Postnummer: Exakt 5 siffror -->
+                <div class="form-floating m-3">
+                    <input type="number" id="postal-code" class="form-control" placeholder="Postal code" required />
+                    <label for="postal-code" class="form-label">Postal code</label>
+                    <div class="invalid-feedback">Invalid</div>
+                    <div class="valid-feedback">Valid</div>
+                </div>
+
+                <!-- City -->
+                <!--Ort: Min 2 tecken och Max 20 tecken-->
+                <div class="form-floating m-3">
+                    <input type="text" id="city" class="form-control" placeholder="City" required />
+                    <label for="city" class="form-label">City</label>
+                    <div class="invalid-feedback">Invalid</div>
+                    <div class="valid-feedback">Valid</div>
+                </div>
+
+                <div class="m-3">
+                    <button type="submit" class="btn btn-primary" id="submit-order-button">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div>
+            <button type="reset" class="btn btn-secondary m-3" id="clear-cart-button">Clear all</button>
+        </div>
+    </div>
+    <script src="scripts/cart.js"></script>
+</body>
+
+</html>

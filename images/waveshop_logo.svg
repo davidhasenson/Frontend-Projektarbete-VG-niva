@@ -1,0 +1,35 @@
+<svg width="400" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circle emblem -->
+  <circle cx="50" cy="60" r="48" fill="#0077CC"/>
+  <circle cx="50" cy="60" r="41" fill="none" stroke="white" stroke-width="0.6" opacity="0.25"/>
+
+  <!-- W lettermark -->
+  <text x="50" y="55" text-anchor="middle"
+        font-size="30" font-weight="500" fill="white"
+        font-family="Arial, Helvetica, sans-serif">W</text>
+
+  <!-- Wave under W -->
+  <path d="M24 68 Q37 60, 50 68 Q63 76, 76 68"
+        fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Tagline inside circle -->
+  <text x="50" y="88" text-anchor="middle"
+        font-size="7" font-weight="400" fill="white"
+        letter-spacing="3" opacity="0.75"
+        font-family="Arial, Helvetica, sans-serif">WAVESHOP</text>
+
+  <!-- Wordmark: Wave -->
+  <text x="118" y="48" font-size="34" font-weight="500" fill="#0D1B2A"
+        font-family="Arial, Helvetica, sans-serif">Wave</text>
+
+  <!-- Wordmark: shop -->
+  <text x="236" y="48" font-size="34" font-weight="300" fill="#0077CC"
+        font-family="Arial, Helvetica, sans-serif">shop</text>
+
+  <!-- Wave underline -->
+  <path d="M118 62 Q152 53, 186 62 Q220 71, 254 62 Q288 53, 322 62 Q356 71, 390 62"
+        fill="none" stroke="#0077CC" stroke-width="2.2" stroke-linecap="round"/>
+
+  <!-- Dot accent at end -->
+  <circle cx="396" cy="62" r="3.5" fill="#0077CC"/>
+</svg>
