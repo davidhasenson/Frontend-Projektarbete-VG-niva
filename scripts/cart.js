@@ -41,8 +41,8 @@ function resetCart() {
     input.classList.remove("is-valid", "is-invalid");
   });
 
-  localStorage.removeItem("cart"); 
-  location.reload(); 
+  localStorage.removeItem("cart");
+  location.reload();
 }
 
 function getCart() {
@@ -103,8 +103,10 @@ function renderCart() {
   `;
 
   output += `
-      <div class="total-price mt-4 p-3 bg-secondary text-white rounded">
-        <h2>Total Price: ${totalPrice.toFixed(2)}$</h2>
+      <div class="card text-bg-secondary mt-3 mb-3">
+        <div class="card-body">
+          <h2 class="card-title">Total Price: ${totalPrice.toFixed(2)}$</h2>
+        </div>
       </div>
     `;
 
@@ -124,7 +126,6 @@ function renderCart() {
       updateQuantity(item.id, -item.quantity)
     );
   });
-
 }
 
 function updateQuantity(productId, quantity) {
