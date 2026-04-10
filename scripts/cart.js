@@ -242,9 +242,14 @@ function formValidation() {
     }
 
     if (isValid) {
+      const receipt = getReceipt();
+      if (!receipt) {
+        alert("Your cart is empty. Please add items to your cart before placing an order.");
+        return;
+      }
       alert(`
 Your order has been placed successfully! 
-${getReceipt()}
+${receipt}
 Email: ${email.value} 
 Telephone: ${tel.value}
 Street Address: ${streetAddress.value}
@@ -265,8 +270,7 @@ function getReceipt() {
   let totalPrice = 0;
 
   if (cart.length === 0) {
-    cartContainer.innerHTML = "<p>Your cart is empty.</p>";
-    return;
+    return null;
   }
 
   let output = "";
